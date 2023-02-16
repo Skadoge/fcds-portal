@@ -2,7 +2,7 @@ import 'package:fcdsapp/HomeScreen.dart';
 import 'package:fcdsapp/StartScreen.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:flutter/material.dart';
-
+import 'package:settings_ui/settings_ui.dart';
 
 class SettingsWidget extends StatefulWidget {
   @override
@@ -10,26 +10,29 @@ class SettingsWidget extends StatefulWidget {
 }
 
 class _SettingsWidgetState extends State<SettingsWidget> {
-  int _selectedIndex = 0;
-
-  void _navigateBottomBar(int index) {
-    setState(() {
-      _selectedIndex = index;
-      if(index==0) {
-        Navigator.pop(context);
-        Navigator.push(context, MaterialPageRoute(builder: (context) => Homescreen1Widget()));
-      }
-      else if(index==3){
-        Navigator.pop(context);
-        Navigator.push(context, MaterialPageRoute(builder: (context) => SettingsWidget()));
-      }
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
 
-    return Text("Settings", style: TextStyle(color: Colors.cyanAccent),);
+    return SettingsList(
+      sections: [
+        SettingsSection(
+          title: Text('Common'),
+          tiles: <SettingsTile>[
+            SettingsTile.navigation(
+              leading: Icon(Icons.language),
+              title: Text('Language'),
+              value: Text('English'),
+            ),
+            SettingsTile.switchTile(
+              onToggle: (value) {},
+              initialValue: true,
+              leading: Icon(Icons.format_paint),
+              title: Text('Enable custom theme'),
+            ),
+          ],
+        ),
+      ],
+    );
   }
 }
 
