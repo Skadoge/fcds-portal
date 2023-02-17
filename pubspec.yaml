@@ -30,6 +30,7 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   settings_ui: 2.0.2
+  url_launcher: 6.1.9
   flutter:
     sdk: flutter
 
