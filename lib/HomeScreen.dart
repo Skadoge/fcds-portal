@@ -1,6 +1,9 @@
+import 'dart:developer';
+
 import 'package:fcdsapp/Settings.dart';
 import 'package:fcdsapp/StartScreen.dart';
 import 'package:fcdsapp/appbarhome.dart';
+import 'package:fcdsapp/services.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:flutter/material.dart';
 
@@ -29,7 +32,7 @@ class _Homescreen1WidgetState extends State<Homescreen1Widget> {
     switch(_selectedIndex){
       case 0: return home_content();
       case 1:
-      case 2:
+      case 2: return Services();
       case 3: return SettingsWidget();
       default: return SettingsWidget();
     }
