@@ -2,18 +2,18 @@ import 'package:fcdsapp/HomeScreen.dart';
 import 'package:fcdsapp/Services/gpacalc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
-
-
-_launchURL() async {
-  const url = 'https://drive.google.com/drive/u/0/folders/1M4RNLSej7F16EHmeFK6iNMOptdFlCxfb';
-  final uri = Uri.parse(url);
-  if (await canLaunchUrl(uri)) {
-    await launchUrl(uri);
-  } else {
-    throw 'Could not launch $url';
-  }
-}
+// import 'package:url_launcher/url_launcher.dart';
+//
+//
+// _launchURL() async {
+//   const url = 'https://drive.google.com/drive/u/0/folders/1M4RNLSej7F16EHmeFK6iNMOptdFlCxfb';
+//   final uri = Uri.parse(url);
+//   if (await canLaunchUrl(uri)) {
+//     await launchUrl(uri);
+//   } else {
+//     throw 'Could not launch $url';
+//   }
+// }
 
 class Services extends StatelessWidget {
   @override
@@ -95,7 +95,7 @@ class Services extends StatelessWidget {
                 InkWell(
                   onTap: () {
                     print("Tapped on container 2");
-                    _launchURL;
+                    // _launchURL;
                   },
                   child: Container(
                     margin: const EdgeInsets.only(top: 0, left: 0,bottom: 0),

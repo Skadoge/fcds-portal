@@ -29,6 +29,21 @@ class _Homescreen1WidgetState extends State<Homescreen1Widget> {
       //}
     });
   }
+  String _stringAppBar = "Home";
+  void _setAppBar(int _selectedIndex){
+    switch(_selectedIndex){
+      case 0: _stringAppBar = "Home";
+      break;
+      case 1: _stringAppBar = "Search";
+      break;
+      case 2: _stringAppBar = "Services";
+      break;
+      case 3: _stringAppBar = "Settings";
+      break;
+      default: _stringAppBar = "Home";
+    }
+  }
+
   Widget _buildBody(){
     switch(_selectedIndex){
       case 0: return home_content();
@@ -43,10 +58,13 @@ class _Homescreen1WidgetState extends State<Homescreen1Widget> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Welcome, Student'),
+        title:  Text(_stringAppBar),
         centerTitle: true,
         backgroundColor: const Color.fromRGBO(18, 18, 18, 100),
         elevation: 20,
+        leading: GestureDetector(
+          child: const Icon( Icons.arrow_back_ios, color: Colors.white, ),
+        ) ,
       ),
       body: _buildBody(),
       backgroundColor: const Color.fromRGBO(18, 18, 18, 100),
@@ -57,6 +75,7 @@ class _Homescreen1WidgetState extends State<Homescreen1Widget> {
           child: GNav(
             selectedIndex: _selectedIndex,
             onTabChange: (_Index) {
+              _setAppBar(_Index);
               _navigateBottomBar(_Index);
               print(_Index);
             },
